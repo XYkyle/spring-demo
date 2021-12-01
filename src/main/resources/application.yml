@@ -1,0 +1,31 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: spring-demo
+  boot:
+    admin:
+      client:
+        url: http://localhost:8080
+        instance:
+          service-base-url: http://127.0.0.1:7777
+logging:
+  config: classpath:config/logback-spring.xml
+  file:
+    path: log
+server:
+  port: 7777
+
+mybatis:
+  type-aliases-package: com.gxl.springdemo.pojo.common.domain
+  mapper-locations: classpath:mapper/*Mapper.xml
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+
